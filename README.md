@@ -5,7 +5,7 @@
 
 ### Prerequisites
 
-* [Docker](https://store.docker.com/search?offering=community&type=edition)
+* [Docker](https://www.docker.com/products/docker-desktop)
 * [Docker-compose](https://docs.docker.com/compose/install/)
 
 ## Running
