@@ -16,7 +16,7 @@ As usual
 docker-compose up
 ```
 
-Navigate to http://localhost:12222
+Navigate to http://localhost:12222/heartbeat
 
 ## Building the images (just in case)
 
