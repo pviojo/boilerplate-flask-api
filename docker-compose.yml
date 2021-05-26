@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  test-flask-api:
+    network_mode: bridge
+    build: .
+    command: ["flask", "run", "--host=0.0.0.0"]
+    volumes:
+      - './src:/app'
+    ports:
+      - 12222:5000
+    environment:
+      FLASK_ENV: development
+      FLASK_APP: app.py
+      PROFILING: '0'
+      PYTHONUNBUFFERED: '1'
+      APP_SETTINGS: project.configs.DevelopmentConfig
+      DATABASE_URL: mysql://test-flask:pass@db/test-flask?charset=utf8mb4
+    links:
+      - test-flask-mysql:db
+    depends_on:
+      - test-flask-mysql
+
+  test-flask-mysql:
+    image: mariadb
+    network_mode: bridge
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'test-flask'
+      MYSQL_USER: 'test-flask'
+      MYSQL_PASSWORD: 'pass'
+      MYSQL_ROOT_PASSWORD: 'pass'
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    ports:
+      - '12223:3306'
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  

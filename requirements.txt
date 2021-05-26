@@ -1,0 +1,12 @@
+alembic
+click
+coverage
+flake8
+Flask
+flask_cors
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-Testing
+gunicorn
+mysqlclient
+SQLAlchemy
