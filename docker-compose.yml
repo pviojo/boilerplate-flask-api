@@ -4,7 +4,7 @@ services:
   test-flask-api:
     network_mode: bridge
     build: .
-    command: ["flask", "run", "--host=0.0.0.0"]
+    command: ["flask", "run", "--host=0.0.0.0", "--cert=cert.pem", "--key=key.pem"]
     volumes:
       - './src:/app'
     ports:
@@ -16,6 +16,10 @@ services:
       PYTHONUNBUFFERED: '1'
       APP_SETTINGS: project.configs.DevelopmentConfig
       DATABASE_URL: mysql://test-flask:pass@db/test-flask?charset=utf8mb4
+      AWS_ACCESS_KEY_ID: X
+      AWS_SECRET_ACCESS_KEY: X
+      DEFAULT_AWS_BUCKET_NAME: x
+      
     links:
       - test-flask-mysql:db
     depends_on:
@@ -31,8 +35,9 @@ services:
       MYSQL_PASSWORD: 'pass'
       MYSQL_ROOT_PASSWORD: 'pass'
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      SENDGRID_API_KEY: ''
     ports:
-      - '12223:3306'
+      - '53322:3306'
     volumes:
       - ./mysql-data:/var/lib/mysql
   

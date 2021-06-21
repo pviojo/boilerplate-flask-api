@@ -1,3 +1,4 @@
+Flask-Dance[sqla]
 alembic==1.6.4
 click==8.0.1
 coverage==5.5
@@ -16,9 +17,15 @@ MarkupSafe==2.0.1
 mccabe==0.6.1
 mysqlclient==2.0.3
 pycodestyle==2.7.0
+bcrypt
+pyjwt
+flask-bcrypt
 pyflakes==2.3.1
 python-dateutil==2.8.1
 python-editor==1.0.4
 six==1.16.0
 SQLAlchemy==1.4.15
 Werkzeug==2.0.1
+sendgrid==6.1.0
+premailer==3.6.1
+boto3
