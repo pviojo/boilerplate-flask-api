@@ -17,7 +17,7 @@ class EmailService:
                 'status':'error'
             }
 
-        config = emails_providers_config.geg(email.get('config'))
+        config = emails_providers_config.get(email.get('config'))
 
         if 'from' not in email:
             email['from'] = config.get('default_from')

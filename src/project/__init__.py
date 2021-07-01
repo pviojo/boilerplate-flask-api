@@ -19,10 +19,12 @@ def register_blueprints(app: Flask) -> None:
     from project.users.endpoints import users_blueprint
     from project.users.endpoints_oauth import oauth_blueprint
     from project.upload.endpoints import upload_blueprint
+    from project.subscribers.endpoints import subscribers_blueprint
     app.register_blueprint(heartbeat_blueprint)
     app.register_blueprint(users_blueprint)
     app.register_blueprint(oauth_blueprint)
     app.register_blueprint(upload_blueprint)
+    app.register_blueprint(subscribers_blueprint)
 
 
 def register_error_handlers(app: Flask) -> None:

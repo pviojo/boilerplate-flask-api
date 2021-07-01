@@ -20,7 +20,7 @@ class Relation(Model):
     role = db.Column(db.String(255), nullable=False)
 
     created_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow, index=True)
-    updated_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow, index=True)
+    updated_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow, onupdate=datetime.utcnow, index=True)
 
     Index('item', item_type, item_id)
 
@@ -45,7 +45,7 @@ class User(Model):
     email = db.Column(db.String(255), unique=True, nullable=False, index=True)
     password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow, index=True)
-    updated_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow, index=True)
+    updated_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow, onupdate=datetime.utcnow, index=True)
 
     def __init__(self, email, password):
         self.email = email

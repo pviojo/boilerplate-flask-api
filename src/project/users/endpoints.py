@@ -21,7 +21,7 @@ def create() -> dict:
 @users_blueprint.route('/user/forget_password', methods=['POST'])
 def forget_password() -> dict:
     user = request.json
-    rsp = UserService.forget_password(user)
+    UserService.forget_password(user)
 
     return 'ack', 201
 
